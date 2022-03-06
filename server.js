@@ -4,7 +4,7 @@ const app = express()
 
 app.get('/', (req, res, next) => {
     res.json({
-        message: "Did you get it?",
+        message: `Using ${req.method} /`,
         metadata:{
             host: req.hostname,
             port: process.env.port,
@@ -14,7 +14,7 @@ app.get('/', (req, res, next) => {
 })
 app.post('/', (req, res, next) => {
     res.json({
-        message: "Did you post it?",
+        message: `Using ${req.method} /`,
         metadata:{
             host: req.hostname,
             port: process.env.port,
@@ -24,7 +24,7 @@ app.post('/', (req, res, next) => {
 })
 app.patch('/', (req, res, next) => {
     res.json({
-        message: "Did you patch it?",
+        message: `Using ${req.method} /`,
         metadata:{
             host: req.hostname,
             port: process.env.port,
@@ -34,7 +34,7 @@ app.patch('/', (req, res, next) => {
 })
 app.delete('/', (req, res, next) => {
     res.json({
-        message: "Did you delete it?",
+        message: `Using ${req.method} /`,
         metadata:{
             host: req.hostname,
             port: process.env.port,
