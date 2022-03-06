@@ -3,7 +3,44 @@ require("dotenv").config();
 const app = express()
 
 app.get('/', (req, res, next) => {
-  res.json({message: "Did you get it?"});
+    res.json({
+        message: "Did you get it?",
+        metadata:{
+            host: req.hostname,
+            port: process.env.port,
+            method: req.method
+        }
+    });
+})
+app.post('/', (req, res, next) => {
+    res.json({
+        message: "Did you post it?",
+        metadata:{
+            host: req.hostname,
+            port: process.env.port,
+            method: req.method
+        }
+    });
+})
+app.patch('/', (req, res, next) => {
+    res.json({
+        message: "Did you patch it?",
+        metadata:{
+            host: req.hostname,
+            port: process.env.port,
+            method: req.method
+        }
+    });
+})
+app.delete('/', (req, res, next) => {
+    res.json({
+        message: "Did you delete it?",
+        metadata:{
+            host: req.hostname,
+            port: process.env.port,
+            method: req.method
+        }
+    });
 })
 
 //middleware modules for error handling
@@ -22,6 +59,7 @@ app.use((error, req, res, next) =>{
         }
     })
 })
+
 
 app.listen(process.env.port, () => console.log(`Starting server on port ${process.env.port}`))
 
