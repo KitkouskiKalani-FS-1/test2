@@ -12,6 +12,17 @@ app.get('/', (req, res, next) => {
         }
     });
 })
+app.get('/:id', (req, res, next) => {
+    res.json({
+        message: `Using ${req.method} / with user ID ${req.params.id}`,
+        metadata:{
+            host: req.hostname,
+            port: process.env.port,
+            method: req.method,
+            id: req.params.id
+        }
+    });
+})
 app.post('/', (req, res, next) => {
     res.json({
         message: `Using ${req.method} /`,
@@ -22,23 +33,25 @@ app.post('/', (req, res, next) => {
         }
     });
 })
-app.patch('/', (req, res, next) => {
+app.patch('/:id', (req, res, next) => {
     res.json({
-        message: `Using ${req.method} /`,
+        message: `Using ${req.method} / with user ID ${req.params.id}`,
         metadata:{
             host: req.hostname,
             port: process.env.port,
-            method: req.method
+            method: req.method,
+            id: req.params.id
         }
     });
 })
-app.delete('/', (req, res, next) => {
+app.delete('/:id', (req, res, next) => {
     res.json({
-        message: `Using ${req.method} /`,
+        message: `Using ${req.method} / with user ID ${req.params.id}`,
         metadata:{
             host: req.hostname,
             port: process.env.port,
-            method: req.method
+            method: req.method,
+            id: req.params.id
         }
     });
 })
